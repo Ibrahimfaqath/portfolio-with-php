@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="./style/style.css">
+    <!-- <link rel="stylesheet" href="./style/style.css"> -->
     <link rel="import" href="./assets/Poppins">
 
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #0f0f0f;
+        color: #e5e5e5;
+      }
+
   * {
     box-sizing: border-box;
     margin: 0;
@@ -43,6 +51,64 @@
     background-color: grey;
     color: white
   }
+
+  .hero {
+    padding: 60px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero p {
+    color: #a1a1a1;
+  }
+
+  .hero button {
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .about-me {
+    padding: 60px 40px;
+  }
+
+  .about-me > div {
+    display: flex;
+    gap: 20px;
+  }
+
+  .about-me > div > div {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+  }
+
+  .about-me h3 {
+    margin-bottom: 8px;
+  }
+
+  .about-me h4 {
+    margin-buttom: 6px;
+  }
+
+  .about-me p {
+    color: #a1a1a1;
+  }
+
+  .my-portfolio {
+    padding: 60px 40px;
+  }
+
+  .my-portfolio > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+
+
     </style>
 </head>
 <body>
@@ -84,8 +150,12 @@
     <!-- My Portfolio -->
     <div class="my-portfolio">
         <h1>My Portfolio</h1>
-        <img src="" alt="">
-        <img src="" alt="">
+        <div>
+          <img src="" alt="">
+          <img src="" alt="">
+          <img src="" alt="">
+        </div>
+        
         <button></button>
     </div>
 
