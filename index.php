@@ -70,6 +70,12 @@
     background-color: #1d4ed8;
   }
 
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
   /* Hero */
   .hero {
     padding: 60px 40px;
@@ -164,13 +170,30 @@
     color: white;
   }
 
-
+  /* mobile */
   @media (max-width: 768px) {
     .navbar {
       flex-wrap: wrap;
       gap: 10px;
     }
 
+    .menu-toggle {
+      display: block;
+      margin-left: auto;
+    }
+
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .nav-menu.active {
+      display: flex
+    }
+
+    /* about */
     .about-me > div {
       flex-direction: column;
     }
@@ -232,6 +255,17 @@
     </div>
 
     <?php include 'footer.php'?>
+
+    <script>
+      const toggle = document.querySelector(".menu-toggle");
+      const menu = document.querySelector(".nav-menu");
+
+      toggle.addEventListener("click", () => {
+        menu.classList.toggle("active");
+      });
+    </script>
 </body>
 </html>
+
+
 
