@@ -6,20 +6,25 @@
     <title>My Portfolio</title>
     <!-- <link rel="stylesheet" href="./style/style.css"> -->
     <link rel="import" href="./assets/Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-      body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #0f0f0f;
-        color: #e5e5e5;
-      }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f0f0f;
+    color: #e5e5e5;
+  }
 
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   /* Navbar */
@@ -29,29 +34,43 @@
     display: flex;
     gap: 70px;
     padding: 17px 17px 17px 40px;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
   }
 
   .navbar a {
     color: white;
     text-decoration: none;
+    padding: 6px 10px;
 
   }
 
   .navbar a:hover {
     text-decoration: underline;
+    background-color: #1f1f1f;
+    border-radius: 6px;
   }
 
   .navbar button {
-    background-color: white;
-    padding: 5px;
-    border-radius: 5px;
+    margin-left: auto;
+    background-color: #2563eb;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor; pointer;
   }
 
   .navbar button:hover {
-    background-color: grey;
-    color: white
+    background-color: #1d4ed8;
   }
 
+  /* Hero */
   .hero {
     padding: 60px 40px;
     max-width: 800px;
@@ -65,10 +84,12 @@
   .hero button {
     padding: 10px 16px;
     border-radius: 6px;
+    margin-top: 10px;
     border: none;
     cursor: pointer;
   }
 
+  /* About */
   .about-me {
     padding: 60px 40px;
   }
@@ -76,6 +97,7 @@
   .about-me > div {
     display: flex;
     gap: 20px;
+    margin-top: 10px;
   }
 
   .about-me > div > div {
@@ -95,8 +117,10 @@
 
   .about-me p {
     color: #a1a1a1;
+    
   }
 
+  /* Portfolio */
   .my-portfolio {
     padding: 60px 40px;
   }
@@ -105,9 +129,56 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    margin-top: 10px;
+  }
+
+  .my-portfolio img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .my-portfolio img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  }
+
+  /* Footer */
+  .footer {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 40px;
+    background-color: #111;
+    color: #aaa;
+  }
+
+  .footer a {
+    color: #aaa;
+    font-size: 18px;
+  }
+
+  .footer a:hover {
+    color: white;
   }
 
 
+  @media (max-width: 768px) {
+    .navbar {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .about-me > div {
+      flex-direction: column;
+    }
+
+    .my-portfolio > div {
+      grid-template-columns: 1fr;
+    }
+  }
 
     </style>
 </head>
@@ -117,43 +188,44 @@
     <?php include 'header.php';?>
 
     <!-- Hero -->
-    <div class="hero">
-        <h1>Hi, I'am Ibrahim</h1>
-        <p>I build simple, useful, and meaningful web applications.</p>
-        <button>Download Cv</button>
+    <div class="hero" id="home">
+        <h1>Halo, saya Ibrahim</h1>
+        <p>Saya sedang belajar web development dan membangun project sederhana untuk terus berkembang.</p>
+        <a href="./assets/CV IBRAHIM PPQ IT AL-MAHIR.pdf" download><button>Download CV</button></a>
         <img src="" alt="">
     </div>
 
     <!-- About Me -->
-    <div class="about-me">
-        <h1>Lorem ipsum dolor sit</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum adipisci</p>
+    <div class="about-me" id="about">
+        <h1>About Me</h1>
+        <p>Saya seorang pelajar yang sedang fokus belajar web development dan membangun kebiasaan membuat project kecil.</p>
         <div>
             <div>
                 <h3>1</h3>
-                <h4>Learner</h4>
-                <p>Aku adalah seorang pelajar</p>
+                <h4>Pembelajar</h4>
+                <p>Saya suka belajar hal baru di dunia pemrograman.</p>
             </div>
             <div>
                 <h3>2</h3>
-                <h4>Builder</h4>
-                <p>Aku adalah seorang pelajar</p>
+                <h4>Pembuat</h4>
+                <p>Saya mencoba membuat project kecil untuk latihan.</p>
             </div>
             <div>
                 <h3>3</h3>
-                <h4>Purpose</h4>
-                <p>Aku adalah seorang pelajar</p>
+                <h4>Tujuan</h4>
+                <p>Ingin menjadi developer yang bermanfaat untuk orang lain.</p>
             </div>
         </div>
     </div>
 
     <!-- My Portfolio -->
-    <div class="my-portfolio">
+    <div class="my-portfolio" id="portfolio">
         <h1>My Portfolio</h1>
+        <p>Beberapa project yang saya kerjakan untuk latihan.</p>
         <div>
-          <img src="" alt="">
-          <img src="" alt="">
-          <img src="" alt="">
+          <img src="./assets/app.jpeg" alt="">
+          <img src="./assets/app2.jpeg" alt="">
+          <img src="./assets/app4.jpeg" alt="">
         </div>
         
         <button></button>
