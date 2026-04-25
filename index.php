@@ -1,3 +1,8 @@
+<?php 
+session_start();
+include 'header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +13,7 @@
     <link rel="import" href="./assets/Poppins">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <style>
+<style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
   body {
@@ -213,8 +218,6 @@
 </head>
 <body>
     <!-- <h1>Bismillah</h1> -->
-
-    <?php include 'header.php';?>
 
     <!-- Hero -->
     <div class="hero" id="home">
