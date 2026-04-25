@@ -4,10 +4,10 @@
     <div class="menu-toggle">☰</div>
 
     <div class="nav-menu">
-        <a href="#home">Home</a>
+    <a href="#home">Home</a>
     <a href="#about">About Me</a>
     <a href="#portfolio">My Portfolio</a>
-    <a href="http://wa.me/6282130208960" target="_blank"></a><button>Contact Me</button>
+    <a href="http://wa.me/6282130208960" target="_blank" class="btn">Contact Me</a>
     </div>
 </nav>
    

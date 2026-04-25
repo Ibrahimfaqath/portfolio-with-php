@@ -56,17 +56,15 @@
     border-radius: 6px;
   }
 
-  .navbar button {
-    margin-left: auto;
+  .btn {
     background-color: #2563eb;
     color: white;
     padding: 6px 14px;
     border-radius: 6px;
-    border: none;
-    cursor; pointer;
+    text-decoration: none;
   }
 
-  .navbar button:hover {
+  .btn:hover {
     background-color: #1d4ed8;
   }
 
@@ -187,6 +185,14 @@
       flex-direction: column;
       width: 100%;
       margin-top: 10px;
+
+      background-color: #111;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .nav-menu a {
+      padding: 10px;
     }
 
     .nav-menu.active {
