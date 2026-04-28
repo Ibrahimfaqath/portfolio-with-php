@@ -6,9 +6,9 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
 
     if ($username === "admin" && $password === "123") {
-        $_SESSION['login'] = true;
+        $_SESSION['username'] = true;
 
-        header("Location: index.php");
+        header("Location: admin.php");
         exit;
     } else {
         $error = "Username atau password salah!";
