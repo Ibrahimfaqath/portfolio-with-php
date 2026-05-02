@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="style/header.css">
 <nav class="navbar">
     <p>Ibrahim</p>
 
