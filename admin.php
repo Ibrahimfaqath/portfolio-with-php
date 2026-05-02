@@ -41,6 +41,8 @@ $page = "about";
 include 'header.php';
 ?>
 
+<link rel="stylesheet" href="style/admin.css">
+
   <section class="section">
     <div class="container">
         <div class="section-title">
