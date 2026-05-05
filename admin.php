@@ -72,7 +72,7 @@ include 'header.php';
             </div>
             <div class="form-group">
                 <label for="image">URL Gambar (opsional)</label>
-                <input type="text" name="image" id="image" placeholder="Masukkan UR gambar portfolio" >
+                <input type="text" name="image" id="image" placeholder="Masukkan URL gambar portfolio" >
             </div>
             <button type="submit" class="btn">Tambah Portfolio</button>
         </form>
