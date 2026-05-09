@@ -1,40 +1,46 @@
 <?php 
 session_start();
+
+include 'helper/config.php';
+
 if (!isset($_SESSION['username'])) {
     // User is not logged in, redirect to login page or show error_clear_last
     header('Location: login.php');
     exit;
 } 
 
+$portfolioItems = [];
+// get portfolio items from database
+$stmt = $pdo->prepare("SELECT * FROM portfolio_items ORDER BY created_at DESC");
+$stmt->execute();
+
+$portofolioItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 // Ini create portfolio array in session if not exists
-if (!isset($_SESSION['portfolio'])) {
-  $_SESSION['portfolio'] = [];
-}
+// if (!isset($_SESSION['portfolio'])) {
+//   $_SESSION['portfolio'] = [];
+// }
 
 // Handle form submission to add new portfolio (POST) item
-// data disimpan di session untuk sementara, nanti bisa diganti dengan dtabase jika sudah belajar database
+// data disimpan di session untuk sementara, nanti bisa diganti dengan database jika sudah belajar database
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'] ?? '';
     $description = $_POST['description'] ?? '';
     $image = $_POST['image'] ?? '';
 
     if ($title && $description) {
-        $_SESSION['portfolio'][] = [
-            'title' => $title,
-            'description' => $description,
-            'image' => $image
-        ];
+       $sql = "INSERT INTO portfolio_items (title, description, image) VALUES (?, ?, ?"
     }
 }
 
 // Handle delete apache_get_version
 // data dihapus dari session berdasarkan index yang dikirim melalui form delete
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_index'])) {
-    $deleteIndex = $_POST['delete_index'];
-    if (isset($_SESSION['portfolio'][$deleteIndex])) {
-        array_splice($_SESSION['portfolio'], $deleteIndex, 1);
-    }
-}
+// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_index'])) {
+//     $deleteIndex = $_POST['delete_index'];
+//     if (isset($_SESSION['portfolio'][$deleteIndex])) {
+//         array_splice($_SESSION['portfolio'], $deleteIndex, 1);
+//     }
+// }
 
 $title = "Admin Page";
 $page = "about";
@@ -98,7 +104,7 @@ include 'header.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($_SESSION['portfolio'] as $index => $item): ?>
+                    <?php foreach ($portfolioItems as $index => $item): ?>
                         <tr>
                             <td><?php echo $index + 1;?></td>
                             <td><?php echo htmlspecialchars($item['title']); ?> </td>

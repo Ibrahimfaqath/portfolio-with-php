@@ -8,9 +8,9 @@ $dbname = "my-portfolio";
 try {
   $pdo = new PDO("mysql:host=$servername;port=3333;dbname=$dbname;charset=utf8mb4", $username, $password);
   // Set the PDO error mode to exception
-  $pdo->setAttribute(PDO::ATTR_ERMODE, PDO::ERRMODE_EXCEPTION);
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   // echo "Connected successfully";
-} catch(PDOExcepion $e) {
+} catch(PDOException $e) {
   echo "Conection failed: " . $e->getMessage();
 } 
 
