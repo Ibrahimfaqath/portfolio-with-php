@@ -14,7 +14,7 @@ $portfolioItems = [];
 $stmt = $pdo->prepare("SELECT * FROM portfolio_items ORDER BY created_at DESC");
 $stmt->execute();
 
-$portofolioItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$portfolioItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Ini create portfolio array in session if not exists
 // if (!isset($_SESSION['portfolio'])) {
@@ -29,18 +29,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $image = $_POST['image'] ?? '';
 
     if ($title && $description) {
-       $sql = "INSERT INTO portfolio_items (title, description, image) VALUES (?, ?, ?"
+       $sql = "INSERT INTO portfolio_items (title, description, image) VALUES (?, ?, ?)";
+       $stmt= $pdo->prepare($sql);
+       $stmt->execute([$title, $description, $image]);
+
+       header("Location: admin.php");
     }
 }
 
 // Handle delete apache_get_version
-// data dihapus dari session berdasarkan index yang dikirim melalui form delete
-// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_index'])) {
-//     $deleteIndex = $_POST['delete_index'];
-//     if (isset($_SESSION['portfolio'][$deleteIndex])) {
-//         array_splice($_SESSION['portfolio'], $deleteIndex, 1);
-//     }
-// }
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $id = $_POST['delete_id'];
+
+    $sql = "DELETE FROM portfolio_items WHERE id = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$id]);
+
+    header("Location: admin.php"); // Refresh halaman
+    exit;
+}
 
 $title = "Admin Page";
 $page = "about";
@@ -118,7 +125,7 @@ include 'header.php';
                             </td>
                             <td>
                               <form action="admin.php" method="POST">
-                                <input type="hidden" name="delete_index" value="<?php echo $index; ?>">
+                                <input type="hidden" name="delete_id" value="<?php echo $item['id']; ?>">
                                 <button type="submit" class="btn">Hapus</button>
                               </form>
                             </td>
